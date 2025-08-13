@@ -1,0 +1,19 @@
+POST http://localhost:1313/courses
+Content-Type: application/json
+
+{
+    "title": "matematica financeira"
+}
+
+###
+GET http://localhost:1313/courses
+
+###
+GET http://localhost:1313/courses/90803b82-a874-4042-b30c-9f0f34bf98c1
+
+
+
+
+
+
+Content-Type: multipart/form-data 
