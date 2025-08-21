@@ -2,14 +2,22 @@ POST http://localhost:1313/courses
 Content-Type: application/json
 
 {
-    "title": "matematica financeira"
+    "title": "Cur"
+}
+
+###
+PATCH http://localhost:1313/courses/:1
+Content-Type: application/json
+
+{
+    "title": "CURSO DE COMPUTADOR"
 }
 
 ###
 GET http://localhost:1313/courses
 
 ###
-GET http://localhost:1313/courses/90803b82-a874-4042-b30c-9f0f34bf98c1
+GET http://localhost:1313/courses/b0220e10-ab44-4b9e-af43-9ddb03c2a8e2
 
 
 

@@ -1,5 +1,10 @@
 import fastify from "fastify";
-import crypto from "node:crypto";
+import { fastifySwagger } from "@fastify/swagger";
+import { fastifySwaggerUi } from "@fastify/swagger-ui";
+import { validatorCompiler, serializerCompiler, type ZodTypeProvider, jsonSchemaTransform } from "fastify-type-provider-zod";
+import { createCourseRoute } from "./src/routes/createCourse.ts";
+import { getCoursesRoute } from "./src/routes/getCourses.ts";
+import { getCoursesByIdRoute } from "./src/routes/getCoursesById.ts";
 
 const server = fastify({
   logger: {
@@ -11,57 +16,50 @@ const server = fastify({
       },
     },
   },
+}).withTypeProvider<ZodTypeProvider>();
+
+server.setSerializerCompiler(serializerCompiler);
+server.setValidatorCompiler(validatorCompiler);
+server.register(fastifySwagger, {
+  openapi: {
+    info: {
+      title: "Curso de Node.js",
+      version: "1.0.0",
+    }
+  },
+  transform: jsonSchemaTransform,
 });
 
-const courses = [
-  { id: "1", title: "Curso node.js" },
-  { id: "2", title: "Curso paulo.js" },
-  { id: "3", title: "Curso allison.js" },
-];
-
-// Criando as rotas
-// GET
-server.get("/courses", () => {
-  return { courses }; // Sempre retorne po objeto da rota
+server.register(fastifySwaggerUi, {
+  routePrefix: "/docs",
 });
 
-// POST
-server.post("/courses", (request, reply) => {
+// Chamando minhas rotas
+server.register(createCourseRoute);
+server.register(getCoursesByIdRoute);
+server.register(getCoursesRoute);
+
+
+/*
+server.patch("/courses/:id", (request, reply) => {
   type Body = {
+    id: string;
     title: string;
   };
-  const body = request.body as Body;
-  const courseTitle = body.title;
 
+  const body = request.body as Body;
+  const newTitle = body.title;
   const courseId = crypto.randomUUID();
 
-  if (!courseTitle) {
-    return reply.status(400).send({ message: "Título obrigatório!" }); // como o body é opcional, estamos validando aqui
+  if (newTitle === title) {
+    return console.log("O novo título precisa ser diferente do anterior!");
   }
 
-  courses.push({ id: courseId, title: courseTitle });
+  courses.push({ id: courseId, title: newTitle });
 
-  return reply.status(201).send({ courseId }); // Sempre retorne po objeto da rota
-});
+  return reply.status(201).send({ title });
+});*/
 
-// GET ID ESPECIFICO
-server.get("/courses/:id", (request, reply) => {
-  // sempre colocar 2 pontos para indicar parametro de rota
-  type Params = {
-    id: string;
-  };
-
-  const params = request.params as Params;
-  const courseId = params.id;
-
-  const course = courses.find((course) => course.id === courseId);
-
-  if (course) {
-    return { course };
-  }
-
-  return reply.status(404).send();
-});
 
 // Listen
 server.listen({ port: 1313 }).then(() => {
