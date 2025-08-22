@@ -1,4 +1,6 @@
 import fastify from "fastify";
+import { eq } from "drizzle-orm";
+// import { db } from "../database/client.ts";
 import { fastifySwagger } from "@fastify/swagger";
 import { fastifySwaggerUi } from "@fastify/swagger-ui";
 import { validatorCompiler, serializerCompiler, type ZodTypeProvider, jsonSchemaTransform } from "fastify-type-provider-zod";
@@ -16,7 +18,7 @@ const server = fastify({
       },
     },
   },
-}).withTypeProvider<ZodTypeProvider>();
+}).withTypeProvider<ZodTypeProvider>()
 
 server.setSerializerCompiler(serializerCompiler);
 server.setValidatorCompiler(validatorCompiler);
@@ -35,9 +37,9 @@ server.register(fastifySwaggerUi, {
 });
 
 // Chamando minhas rotas
-server.register(createCourseRoute);
-server.register(getCoursesByIdRoute);
-server.register(getCoursesRoute);
+server.register(createCourseRoute)
+server.register(getCoursesByIdRoute)
+server.register(getCoursesRoute)
 
 
 /*
