@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import { FastifyPluginAsync } from "fastify";
 import { eq } from "drizzle-orm";
 // import { db } from "../database/client.ts";
 import { fastifySwagger } from "@fastify/swagger";
