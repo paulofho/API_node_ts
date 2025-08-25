@@ -2,7 +2,7 @@ POST http://localhost:1313/courses
 Content-Type: application/json
 
 {
-    "title": "Cur"
+    "title": "Curso de casca de banana"
 }
 
 ###
