@@ -2,7 +2,7 @@ POST http://localhost:1313/courses
 Content-Type: application/json
 
 {
-    "title": "Curso de casca de banana"
+    "title": "Curso de casca de abobora.js"
 }
 
 ###
@@ -17,7 +17,7 @@ Content-Type: application/json
 GET http://localhost:1313/courses
 
 ###
-GET http://localhost:1313/courses/b0220e10-ab44-4b9e-af43-9ddb03c2a8e2
+GET http://localhost:1313/courses/1839ef9b-9c9d-4762-975a-4fa1d388786f
 
 
 

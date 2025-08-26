@@ -37,8 +37,7 @@ server.register(fastifySwaggerUi, {
   routePrefix: "/docs",
 });
 
-// Registrando rotas
-server.register(createCourseRoute);
+// Registrando rotas server.register(createCourseRoute);
 server.register(getCoursesByIdRoute);
 server.register(getCoursesRoute);
 

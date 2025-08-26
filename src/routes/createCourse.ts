@@ -1,7 +1,7 @@
 import type { FastifyPluginAsync } from "fastify";
 import { db } from "../database/client.ts";
 import { courses } from "../database/schema.ts";
-import { z } from "zod";
+import { string, z } from "zod";
 
 export const createCourseRoute: FastifyPluginAsync = async (server) => {
   server.post("/courses", {
@@ -11,11 +11,11 @@ export const createCourseRoute: FastifyPluginAsync = async (server) => {
       }),
     },
   }, async (request, reply) => {
-    const { title } = request.body;
+    const { courseTitle } = request.body.title
 
     const result = await db
       .insert(courses)
-      .values({ title })
+      .values({ title:courseTitle })
       .returning();
 
     return reply.status(201).send({ courseId: result[0].id });
