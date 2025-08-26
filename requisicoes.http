@@ -2,7 +2,7 @@ POST http://localhost:1313/courses
 Content-Type: application/json
 
 {
-    "title": "Curso de casca de abobora.js"
+    "title": "Curso de desenhor grafico"
 }
 
 ###
@@ -17,7 +17,7 @@ Content-Type: application/json
 GET http://localhost:1313/courses
 
 ###
-GET http://localhost:1313/courses/1839ef9b-9c9d-4762-975a-4fa1d388786f
+GET http://localhost:1313/courses/a0013003-1796-4a54-8fd5-a2e435a3eab4
 
 
 

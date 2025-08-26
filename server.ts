@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import { fastifySwagger } from "@fastify/swagger";
 import { fastifySwaggerUi } from "@fastify/swagger-ui";
 import { validatorCompiler, serializerCompiler, jsonSchemaTransform } from "fastify-type-provider-zod";
@@ -38,6 +39,9 @@ server.register(fastifySwaggerUi, {
 });
 
 // Registrando rotas server.register(createCourseRoute);
+
+
+server.register(createCourseRoute);
 server.register(getCoursesByIdRoute);
 server.register(getCoursesRoute);
 
