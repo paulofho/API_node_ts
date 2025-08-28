@@ -3,6 +3,7 @@ import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import { fastifySwagger } from "@fastify/swagger";
 import { fastifySwaggerUi } from "@fastify/swagger-ui";
 import { validatorCompiler, serializerCompiler, jsonSchemaTransform } from "fastify-type-provider-zod";
+import scalarAPIReference from "@scalar/fastify-api-reference";
 
 // Rotas
 import { createCourseRoute } from "./src/routes/createCourse.ts";
@@ -34,9 +35,12 @@ server.register(fastifySwagger, {
   transform: jsonSchemaTransform,
 });
 
-server.register(fastifySwaggerUi, {
-  routePrefix: "/docs",
-});
+//server.register(fastifySwaggerUi, {
+  //routePrefix: "/docs",
+//});
+server.register(scalarAPIReference, {
+  routePrefix: '/docs',
+})
 
 // Registrando rotas server.register(createCourseRoute);
 
