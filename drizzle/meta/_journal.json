@@ -15,6 +15,34 @@
       "when": 1755800231570,
       "tag": "0001_solid_payback",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1756842550599,
+      "tag": "0002_adorable_talkback",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1756842701899,
+      "tag": "0003_marvelous_tana_nile",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1756844855062,
+      "tag": "0004_overrated_lenny_balinger",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1756846113420,
+      "tag": "0005_chief_justice",
+      "breakpoints": true
     }
   ]
 }
