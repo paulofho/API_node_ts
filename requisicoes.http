@@ -18,7 +18,13 @@ GET http://localhost:1313/courses?orderBy=title
 
 GET http://localhost:1313/courses/a0013003-1796-4a54-8fd5-a2e435a3eab4
 
-
+###
+POST http://localhost:1313/sessions
+Content-Type: application/json
+{
+    "email": "Sirineu48@yahoo.com",
+    "password": "123456"
+}
 
 
 

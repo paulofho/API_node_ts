@@ -9,6 +9,7 @@ import scalarAPIReference from "@scalar/fastify-api-reference";
 import { createCourseRoute } from "./routes/createCourse.ts";
 import { getCoursesRoute } from "./routes/getCourses.ts";
 import { getCoursesByIdRoute } from "./routes/getCoursesById.ts";
+import { loginRoute } from "./routes/login.ts";
 
 export const server = fastify({
   logger: {
@@ -48,6 +49,7 @@ server.register(scalarAPIReference, {
 server.register(createCourseRoute);
 server.register(getCoursesByIdRoute);
 server.register(getCoursesRoute);
+server.register(loginRoute);
 
 
 //export { server };

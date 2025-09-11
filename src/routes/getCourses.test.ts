@@ -12,4 +12,9 @@ test ('Get all courses', async () => {
  
     console.log(response.body)
 
+    expect(response.body).toEqual({
+        courses: expect.any(Array)
+    })
+
+
 })
